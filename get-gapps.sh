@@ -4,7 +4,7 @@ cd `dirname $0`
 mkdir -p proprietary/gapps
 
 # Get gapps
-GAPPS_URL=http://goo.im/gapps/gapps-ics-20120422-signed.zip
+GAPPS_URL=http://goo.im/gapps/gapps-ics-20120429-signed.zip
 TMP_FILE=/tmp/gapps.zip
 curl -L $GAPPS_URL > $TMP_FILE &&
 unzip -o $TMP_FILE -d proprietary/gapps
