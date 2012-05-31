@@ -15,6 +15,7 @@ endef
 
 LOCAL_APPS += $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/gapps/system/app/*$(COMMON_ANDROID_PACKAGE_SUFFIX)))
 LOCAL_APPS += $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/gapps/optional/face/app/*$(COMMON_ANDROID_PACKAGE_SUFFIX)))
+LOCAL_APPS += Gmail.apk GoogleMaps.apk
 ifneq ($(TARGET_ARCH),x86)
 LOCAL_APPS += KoreanIME Superuser
 endif
