@@ -13,8 +13,10 @@ include $$(BUILD_PREBUILT)
 
 endef
 
-LOCAL_APPS := $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/*$(COMMON_ANDROID_PACKAGE_SUFFIX)))
 LOCAL_APPS += $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/gapps/system/app/*$(COMMON_ANDROID_PACKAGE_SUFFIX)))
 LOCAL_APPS += $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/gapps/optional/face/app/*$(COMMON_ANDROID_PACKAGE_SUFFIX)))
+ifneq ($(TARGET_ARCH),x86)
+LOCAL_APPS += KoreanIME Superuser
+endif
 
 $(foreach a,$(LOCAL_APPS),$(eval $(call include-app,$(a))))

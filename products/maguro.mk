@@ -1,5 +1,5 @@
 # Inherit AOSP device configuration for maguro.
-$(call inherit-product, device/samsung/maguro/full_maguro.mk)
+$(call inherit-product-if-exists, device/samsung/maguro/full_maguro.mk)
 
 # Inherit common product files.
 $(call inherit-product, vendor/est/products/common.mk)
@@ -18,3 +18,11 @@ PRODUCT_DEVICE := maguro
 -include vendor/est/products/gapps_ics.mk
 -include vendor/est/products/gapps_optional_ics.mk
 
+
+PRODUCT_PACKAGES += \
+	KoreanIME \
+    Superuser
+
+PRODUCT_COPY_FILES += \
+    vendor/est/proprietary/bin/armeabi/su:system/xbin/su \
+    vendor/est/proprietary/lib/armeabi/libjni_koreanime.so:system/lib/libjni_koreanime.so

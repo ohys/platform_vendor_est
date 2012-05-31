@@ -17,11 +17,20 @@ for f in `ls -1 proprietary/gapps/system/app/*.apk | egrep -v 'GalleryGoogle|Goo
 done
 
 echo "\nPRODUCT_COPY_FILES +=  \\" >> $GAPPS_MK
-for f in `find proprietary/gapps/system -type f ! -name '*.apk'`; do
+for f in `find proprietary/gapps/system -type f ! -name '*.apk' ! -name '*.so'`; do
     src=vendor/est/$f
     dest=`echo $f | sed 's/proprietary\/gapps\///'`
     echo "    $src:$dest \\" >> $GAPPS_MK
 done
+
+echo '\nifeq ($(TARGET_ARCH),arm)' >> $GAPPS_MK
+echo "PRODUCT_COPY_FILES +=  \\" >> $GAPPS_MK
+for f in `find proprietary/gapps/system -type f -name '*.so'`; do
+    src=vendor/est/$f
+    dest=`echo $f | sed 's/proprietary\/gapps\///'`
+    echo "    $src:$dest \\" >> $GAPPS_MK
+done
+echo '\nendif' >> $GAPPS_MK
 
 GAPPS_MK=products/gapps_optional_ics.mk
 for f in `ls -1 proprietary/gapps/optional/face/app/*.apk`; do
