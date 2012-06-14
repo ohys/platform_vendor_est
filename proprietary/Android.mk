@@ -17,7 +17,7 @@ LOCAL_APPS += $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/gapps/system/app/
 LOCAL_APPS += $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/gapps/optional/face/app/*$(COMMON_ANDROID_PACKAGE_SUFFIX)))
 LOCAL_APPS += Gmail.apk GoogleMaps.apk
 ifneq ($(TARGET_ARCH),x86)
-LOCAL_APPS += KoreanIME Superuser
+LOCAL_APPS += KoreanIME.apk Superuser.apk
 endif
 
 $(foreach a,$(LOCAL_APPS),$(eval $(call include-app,$(a))))
