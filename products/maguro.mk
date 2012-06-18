@@ -16,6 +16,7 @@ PRODUCT_DEVICE := maguro
 
 # Inherit gapps blobs
 -include vendor/est/products/gapps_ics.mk
+-include vendor/est/products/gapps_ics_lib.mk
 -include vendor/est/products/gapps_optional_ics.mk
 
 
